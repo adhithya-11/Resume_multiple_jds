@@ -1,0 +1,9 @@
+Job Title: Business Analyst
+Responsibilities:
+- Gather and analyze business requirements from stakeholders.
+- Create reports and dashboards to monitor KPIs.
+- Work with cross-functional teams to implement solutions.
+Required Skills:
+- Proficient in SQL, Excel, Power BI.
+- Strong analytical and communication skills.
+- Understanding of business processes and requirements.

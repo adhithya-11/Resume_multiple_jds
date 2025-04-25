@@ -1,0 +1,9 @@
+Job Title: AI Engineer
+Responsibilities:
+- Develop AI-based systems for automation and decision-making.
+- Work on natural language processing, computer vision, and robotics.
+- Collaborate with research teams to implement advanced AI solutions.
+Required Skills:
+- Expertise in AI technologies and algorithms.
+- Proficiency in Python, TensorFlow, PyTorch.
+- Experience with AI frameworks and tools.

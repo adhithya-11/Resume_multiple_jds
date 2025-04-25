@@ -1,0 +1,9 @@
+Job Title: Cloud Architect
+Responsibilities:
+- Design and implement scalable cloud architecture.
+- Collaborate with development and operations teams.
+- Optimize cloud services for performance and cost-efficiency.
+Required Skills:
+- Expertise in cloud platforms like AWS, Azure, GCP.
+- Experience with microservices and containerization.
+- Knowledge of security best practices in the cloud.

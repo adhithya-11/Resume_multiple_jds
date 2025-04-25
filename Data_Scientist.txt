@@ -1,0 +1,9 @@
+Job Title: Data Scientist
+Responsibilities:
+- Build predictive models and machine learning algorithms.
+- Clean and preprocess data.
+- Collaborate with engineering teams for model deployment.
+Required Skills:
+- Strong programming skills in Python, R.
+- Expertise in machine learning algorithms.
+- Familiar with deep learning frameworks like TensorFlow, PyTorch.

@@ -1,0 +1,9 @@
+Job Title: Data Analyst
+Responsibilities:
+- Analyze data and provide actionable insights.
+- Create reports using tools like SQL, Excel, and Power BI.
+- Maintain and update databases.
+Required Skills:
+- Proficient in SQL, Excel.
+- Strong analytical skills.
+- Knowledge of statistical analysis techniques.

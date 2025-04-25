@@ -1,0 +1,9 @@
+Job Title: Java Developer
+Responsibilities:
+- Design and develop high-performance applications using Java.
+- Write clean, maintainable, and efficient code.
+- Participate in code reviews and maintain coding standards.
+Required Skills:
+- Strong proficiency in Java and object-oriented programming.
+- Familiarity with Java frameworks like Spring and Hibernate.
+- Experience in database management and SQL.

@@ -1,0 +1,9 @@
+Job Title: DevOps Engineer
+Responsibilities:
+- Automate and optimize deployment pipelines.
+- Collaborate with development and operations teams.
+- Manage infrastructure as code.
+Required Skills:
+- Proficiency in CI/CD tools like Jenkins, Docker.
+- Experience with cloud platforms (AWS, Azure).
+- Strong scripting skills in Python, Bash.

@@ -1,0 +1,9 @@
+Job Title: AWS Cloud Engineer
+Responsibilities:
+- Design, implement, and manage cloud infrastructure using AWS.
+- Automate cloud deployment and monitor cloud resources.
+- Ensure security and scalability of cloud services.
+Required Skills:
+- Expertise in AWS services and cloud technologies.
+- Strong scripting skills in Python, Bash.
+- Experience in cloud security and monitoring tools.
