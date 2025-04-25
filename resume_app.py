@@ -107,14 +107,14 @@ if uploaded_resume:
                 best_jd_text = jd_text
                 best_index = idx
 
-            if score >= 80:
-                st.success("✅ Strong match!")
-            elif score >= 60:
-                st.warning("🛠 Decent match, consider tweaking resume.")
+            if score >= 70:
+                st.success("✅ Strong match! & apply right away")
+            elif score >= 50 and score <70:
+                st.warning("🛠 Tailour your resume & apply .")
             else:
-                st.error("❌ Not a good fit.")
+                st.error("❌ Not a good fit & may be try another.")
 
         if best_jd_text:
             st.markdown("---")
             st.subheader(f"🏆 Best Match: JD {best_index + 1}")
-            st.text_area("Best Job Description", best_jd_text, height=200)
+            
