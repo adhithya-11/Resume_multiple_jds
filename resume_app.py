@@ -1,8 +1,7 @@
 import streamlit as st
-import fitz
+import fitz  # PyMuPDF for PDF extraction
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sentence_transformers import SentenceTransformer, util
 from sklearn.metrics.pairwise import cosine_similarity
 import nltk
 from nltk.corpus import stopwords
@@ -10,9 +9,6 @@ from nltk.corpus import stopwords
 # Download stopwords once
 nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
-
-# Load Sentence Transformer
-model = SentenceTransformer("all-MiniLM-L6-v2", device='cpu')
 
 # Keywords for rule-based backup prediction
 roles_keywords = {
@@ -63,10 +59,10 @@ def predict_role(text, roles_keywords):
 
 # === SIMILARITY SCORE ===
 def compare_with_jd(resume_text, jd_text, resume_role, jd_role):
-    # Use hybrid method: semantic similarity + TF-IDF cosine
-    resume_emb = model.encode(resume_text, convert_to_tensor=True)
-    jd_emb = model.encode(jd_text, convert_to_tensor=True)
-    sim_score = util.pytorch_cos_sim(resume_emb, jd_emb).item()
+    # Use cosine similarity
+    vectorizer = TfidfVectorizer()
+    tfidf_matrix = vectorizer.fit_transform([resume_text, jd_text])
+    sim_score = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:]).flatten()[0]
 
     # Role match bonus
     if resume_role.lower() == jd_role.lower():
@@ -90,7 +86,6 @@ if uploaded_resume:
     jd_files = st.file_uploader("📑 Upload Job Descriptions (TXT files)", type=["txt"], accept_multiple_files=True)
     if jd_files:
         best_score = 0
-        best_jd_text = ""
         best_index = -1
 
         for idx, jd_file in enumerate(jd_files):
@@ -98,23 +93,24 @@ if uploaded_resume:
             jd_role = predict_role(jd_text, roles_keywords)
             score = compare_with_jd(resume_text, jd_text, resume_role, jd_role)
 
-            st.subheader(f"📋 JD {idx+1} - {jd_file.name}")
+            st.subheader(f"📋 JD {jd_file.name}")
             st.write(f"Predicted JD Role: **{jd_role.title()}**")
             st.metric("🔍 Match Score", f"{score}%")
 
             if score > best_score:
                 best_score = score
-                best_jd_text = jd_text
                 best_index = idx
 
-            if score >= 70:
-                st.success("✅ Strong match! & apply right away")
-            elif score >= 50 and score <70:
-                st.warning("🛠 Tailour your resume & apply .")
+            if score >= 80:
+                st.success("✅ Strong match!")
+            elif score >= 60:
+                st.warning("🛠 Decent match, consider tweaking resume.")
             else:
-                st.error("❌ Not a good fit & may be try another.")
+                st.error("❌ Not a good fit.")
 
-        if best_jd_text:
+        if best_score > 0:
             st.markdown("---")
-            st.subheader(f"🏆 Best Match: JD {best_index + 1}")
-            
+            st.subheader(f"🏆 Best Match: {jd_files[best_index].name}")
+
+            # Show the "Apply for this immediately" message
+            st.markdown("### 🚀 Apply for this immediately!")
